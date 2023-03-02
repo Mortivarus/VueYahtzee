@@ -1,30 +1,51 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import ScoreTable from './components/ScoreTable.vue'
+import ThrownDices from './components/ThrownDices.vue'
+
+export default {
+    components:{
+        ScoreTable,
+        ThrownDices
+    }
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <h1>Scoreblok</h1>
+    <ScoreTable />
+
+    <table>
+        <tr>
+            <ThrownDices />
+        </tr>
+    </table>
+    <input type="button" value="Gooien!" id="throwButton">
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+  table{
+    display: inline-table;
+    border-collapse: collapse;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+th, td, table{
+    border: 1px solid #888;
+    padding: 10px;
+    font-family: sans-serif;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+th{
+    color: white;
+    background-color: black;
+    text-align: left;
+}
+
+.tmpLocked{
+    background-color:grey;
+}
+
+.locked{
+    background-color: firebrick;
+
 }
 </style>
