@@ -9,23 +9,35 @@ import random
 
 throw = []
 
-freq = []
-
-conseq = []
-
 for i in range(5):
      throw.append(random.randint(1, 6))
     
 throw.sort()
 res = [*set(throw)]
 
-for i in range(len(res)-1):
-    conseq.append(res[i+1]-res[i])
-    
-for i in range(1,7):
-    freq.append(len([x for x in throw if x == i]))
+nonConsecCount = 0
+
+# for i in range(0, len(res)-1):
+#     if(res[i] + 1 != res[i+1]):
+#         nonConsecCount += 1
+#     else:
 
 
+size = []
+
+conseqCount = 0
+
+for i in range(0, len(res)-1):
+    if(res[i] + 1 == res[i+1]):
+        conseqCount += 1
+        print(f"{res[i]+1}, {res[i+1]} ")
+    else:
+        size.append(conseqCount + 1)
+        print(f"{res[i]+1}, {res[i+1]} ")
+        conseqCount = 0
+        continue
+    size.append(conseqCount + 1)
+        
 
 
-    
+     

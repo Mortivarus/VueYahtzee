@@ -14,12 +14,7 @@ export default {
   <h1>Scoreblok</h1>
     <ScoreTable />
 
-    <table>
-        <tr>
-            <ThrownDices />
-        </tr>
-    </table>
-    <input type="button" value="Gooien!" id="throwButton">
+    <ThrownDices />
 </template>
 
 <style>

@@ -1,3 +1,32 @@
+<script>
+
+    export default{
+        data(){
+            return {
+                scorePartOne:{
+                    numOne: 10,
+                    numTwo: 5,
+                    numThree: 2,
+                    numFour: 8,
+                    numFive: 10,
+                    numSix: 18
+                }
+            }
+        },
+        methods: {
+                sumValues(obj){
+                    Object.values(obj).reduce((a, b)=> a+b, 0)
+                }
+
+
+            }
+    }
+
+</script>
+
+
+
+
 <template>
     <table>
         <tr>
@@ -8,32 +37,32 @@
         <tr>
             <td>Enen</td>
             <td>Tel alle enen op</td>
-            <td class="dieTotal score one">0</td>
+            <td class="dieTotal score one">{{ this.scorePartOne.numOne }}</td>
         </tr>
         <tr>
             <td>Tweeen</td>
             <td>Tel alle tweeen op</td>
-            <td class="dieTotal score one">0</td>
+            <td class="dieTotal score one">{{ this.scorePartOne.numTwo }}</td>
         </tr>
         <tr>
             <td>Drieen</td>
             <td>Tel alle drieen op</td>
-            <td class="dieTotal score one">0</td>
+            <td class="dieTotal score one">{{ this.scorePartOne.numThree }}</td>
         </tr>
         <tr>
             <td>Vieren</td>
             <td>Tel alle vieren op</td>
-            <td class="dieTotal score one">0</td>
+            <td class="dieTotal score one">{{ this.scorePartOne.numFour }}</td>
         </tr>
         <tr>
             <td>Vijfen</td>
             <td>Tel alle vijven op</td>
-            <td class="dieTotal score one">0</td>
+            <td class="dieTotal score one">{{ this.scorePartOne.numFive }}</td>
         </tr>
         <tr>
             <td>Zessen</td>
             <td>Tel alle zessen op</td>
-            <td class="dieTotal score one">0</td>
+            <td class="dieTotal score one">{{ this.scorePartOne.numSix }}</td>
         </tr>
         <tr>
             <td colspan="2">Totaal aantal punten</td>
