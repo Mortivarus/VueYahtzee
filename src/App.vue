@@ -12,7 +12,7 @@ export default {
 
 <template>
   <h1>Scoreblok</h1>
-    <ScoreTable />
+    <ScoreTable :throwndice="asdasdas" />
 
     <ThrownDices />
 </template>
