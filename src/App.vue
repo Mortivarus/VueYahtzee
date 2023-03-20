@@ -1,18 +1,13 @@
-<script>
+<script setup>
 import ScoreTable from './components/ScoreTable.vue'
 import ThrownDices from './components/ThrownDices.vue'
 
-export default {
-    components:{
-        ScoreTable,
-        ThrownDices
-    }
-}
+
 </script>
 
 <template>
   <h1>Scoreblok</h1>
-    <ScoreTable :throwndice="asdasdas" />
+    <ScoreTable />
 
     <ThrownDices />
 </template>
