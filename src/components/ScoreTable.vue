@@ -1,14 +1,33 @@
 <script setup>
 import {ref, reactive} from 'vue'
 
-let scorePartOne = reactive({
-    numOne: 10,
+let scorePartOne = ref({
+    numOne: 15,
     numTwo: 5,
     numThree: 2,
     numFour: 8,
     numFive: 10,
     numSix: 18
 })
+
+function countConsequtives(array){
+    array.sort()
+    array = [...new Set(array)]
+    let conseqCount = 0
+    let size = []
+
+    for(let i = 0; i< array.length-1; i++){
+        if(array[i]+1 === array[i+1]){
+            conseqCount += 1
+            console.log(`${array[i]+1}, ${array[i+1]}`)
+        } else{
+            size.push(conseqCount + 1)
+            conseqCount = 0
+            console.log(`${array[i]+1}, ${array[i+1]}`)
+        }
+    }
+    size.push(conseqCount + 1)
+}
 
 function sumValues(obj){
     Object.values(obj).reduce((a, b)=> a+b, 0)

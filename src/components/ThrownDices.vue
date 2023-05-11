@@ -1,54 +1,31 @@
 <script setup>
-import {reactive, ref} from 'vue'
+import {ref} from 'vue'
 
-let thrown = reactive([0,0,0,0,0])
-let numFreq = reactive([0,0,0,0,0,0])
+let props = defineProps(['thrown'])
 
-function throwCount(){
-    numFreq = []
-    for(let i = 1; i < 7; i++){
 
-        let ln = thrown.filter(number => number == i).length
 
-        numFreq.push(ln)
-    }
-} 
 
 function throwDice(){
-    thrown = []
+    props.thrown = [0,0,0,0,0]
 
-    for(let i = 0; i < 5; i++){
-        thrown.push(Math.floor(Math.random()*6) +1)
-    }
-    console.log(thrown)
+    // for(let i = 0; i < 5; i++){
+    //     props.thrown.push(Math.floor(Math.random()*6) +1)
+    // }
+
+    console.log(props.thrown)
 }
 
-function countConsequtives(array){
-    array.sort()
-    array = [...new Set(array)]
-    let conseqCount = 0
-    let size = []
 
-    for(let i = 0; i< array.length-1; i++){
-        if(array[i]+1 === array[i+1]){
-            conseqCount += 1
-            console.log(`${array[i]+1}, ${array[i+1]}`)
-        } else{
-            size.push(conseqCount + 1)
-            conseqCount = 0
-            console.log(`${array[i]+1}, ${array[i+1]}`)
-        }
-    }
-    size.push(conseqCount + 1)
-}
 
+// const emit = defineEmits(['submitThrown'])
 </script>
 
 <template>
     <h2>Thrown Dice</h2>
     <table>
         <tr>
-            <td v-for="(item, index) in thrown" :key="index">
+            <td v-for="(item, index) in props.thrown" :key="index">
                 {{ item }}
             </td>
            
@@ -70,5 +47,6 @@ function countConsequtives(array){
             </td>
         </tr>
     </table>
-    <button v-on:click="throwDice()">herp</button>
+    <button @click="throwDice()">herp</button>
+    <!-- <button @click="$emit('submitThrown')">derp</button> -->
 </template>
