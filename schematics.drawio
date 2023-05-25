@@ -1,0 +1,46 @@
+<mxfile host="Electron" modified="2023-05-11T14:02:20.566Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="XopnuIpLRXa__h78RFir" version="21.1.2" type="device">
+  <diagram name="Page-1" id="zuUgJlN093BFmpkUVcPU">
+    <mxGraphModel dx="1114" dy="878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rNoRTNmjF8c_jYbtz0W2-1" target="rNoRTNmjF8c_jYbtz0W2-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-1" value="Button" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="440" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="rNoRTNmjF8c_jYbtz0W2-2" target="rNoRTNmjF8c_jYbtz0W2-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-2" value="fun throwDice( )" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="525" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-6" value="Draw 5 random numbers, clear array and push numbers to it" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="540" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="rNoRTNmjF8c_jYbtz0W2-7" target="rNoRTNmjF8c_jYbtz0W2-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-7" value="[thrown]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rNoRTNmjF8c_jYbtz0W2-9" target="rNoRTNmjF8c_jYbtz0W2-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-9" value="fun throwCount( )" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-11" value="Take the thrown array, calculate frequencies of 1-6 and add this to a new array" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="715" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-14" value="[numFreq]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="790" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rNoRTNmjF8c_jYbtz0W2-17" value="fun countConseq(array)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="700" width="140" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
