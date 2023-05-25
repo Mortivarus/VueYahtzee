@@ -1,6 +1,9 @@
 <script setup>
 import {ref, reactive} from 'vue'
 
+let props = defineProps(['thrown'])
+
+
 let scorePartOne = ref({
     numOne: 15,
     numTwo: 5,
@@ -27,16 +30,23 @@ function countConsequtives(array){
         }
     }
     size.push(conseqCount + 1)
+
+    console.log
 }
 
 function sumValues(obj){
     Object.values(obj).reduce((a, b)=> a+b, 0)
 }
 
+
+
+
+
+
 </script>
 
 <template>
-    <table>
+    <!-- <table>
         <tr>
             <th>Deel 1</th>
             <th>Puntentelling</th>
@@ -135,5 +145,5 @@ function sumValues(obj){
             <td colspan="2">Totaal</td>
             <td id="total">0</td>
         </tr>
-    </table>
+    </table> -->
 </template>

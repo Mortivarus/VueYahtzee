@@ -1,24 +1,32 @@
 <script setup>
 import {ref} from 'vue'
 
-let props = defineProps(['thrown'])
+let props = defineProps(['thrown', 'frequency'])
 
+function calcDice(){
+    props.thrown.length = 0
 
-
-
-function throwDice(){
-    props.thrown = [0,0,0,0,0]
-
-    // for(let i = 0; i < 5; i++){
-    //     props.thrown.push(Math.floor(Math.random()*6) +1)
-    // }
-
-    console.log(props.thrown)
+    for(let i = 0; i < 5; i++){
+        props.thrown.push(Math.floor(Math.random()*6) +1)
+    }
 }
 
+function calcFreq(){
+    props.frequency.length = 0
 
+    for(let i = 1; i < 7; i++){
 
-// const emit = defineEmits(['submitThrown'])
+        let ln = props.thrown.filter(number => number == i).length
+
+        props.frequency.push(ln)
+    }
+}
+
+function throwDice(){
+    calcDice()
+    calcFreq()
+}
+
 </script>
 
 <template>
@@ -42,11 +50,10 @@ function throwDice(){
             </td>
         </tr>
         <tr>
-            <td v-for="(item, index) in numFreq" :key="index">
+            <td v-for="(item, index) in props.frequency" :key="index">
                 {{ item }}
             </td>
         </tr>
     </table>
-    <button @click="throwDice()">herp</button>
-    <!-- <button @click="$emit('submitThrown')">derp</button> -->
+    <button @click="throwDice()">Throw!</button>
 </template>

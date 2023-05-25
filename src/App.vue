@@ -4,20 +4,10 @@ import ThrownDices from './components/ThrownDices.vue'
 import {ref, reactive} from 'vue'
 
 
-let thrownDice = ref([])
+let thrownDice = ref([0,0,0,0,0])
 
 const numFreq = ref([0,0,0,0,0,0])
 
-
-function throwCount(){
-    numFreq.value = []
-    for(let i = 1; i < 7; i++){
-
-        let ln = thrown.value.filter(number => number == i).length
-
-        numFreq.value.push(ln)
-    }
-} 
 
 
 const log = () => console.log(thrownDice.value)
@@ -27,11 +17,11 @@ const log = () => console.log(thrownDice.value)
 
 <template>
   <h1>Scoreblok</h1>
-  <ThrownDices :thrown="thrownDice" @submitThrown="log()" />
+  <ThrownDices :thrown="thrownDice" :frequency="numFreq" @submitThrown="log()" />
   
-  {{ thrown }}
+
   
-  <ScoreTable />
+  <ScoreTable :thrown="numFreq"/>
 </template>
 
 
