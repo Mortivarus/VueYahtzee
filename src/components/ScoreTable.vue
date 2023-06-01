@@ -1,17 +1,46 @@
 <script setup>
-import {ref, reactive} from 'vue'
+import {ref, reactive, computed} from 'vue'
 
-let props = defineProps(['thrown'])
+let props = defineProps(['freq'])
 
 
 let scorePartOne = ref({
-    numOne: 15,
-    numTwo: 5,
-    numThree: 2,
-    numFour: 8,
-    numFive: 10,
-    numSix: 18
+    1: props.freq[0],
+    2: props.freq[1],
+    3: props.freq[2],
+    4: props.freq[3],
+    5: props.freq[4],
+    6: props.freq[5]
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function countConsequtives(array){
     array.sort()
@@ -46,7 +75,7 @@ function sumValues(obj){
 </script>
 
 <template>
-    <!-- <table>
+    <table>
         <tr>
             <th>Deel 1</th>
             <th>Puntentelling</th>
@@ -55,32 +84,32 @@ function sumValues(obj){
         <tr>
             <td>Enen</td>
             <td>Tel alle enen op</td>
-            <td class="dieTotal score one">{{ scorePartOne.numOne }}</td>
+            <td class="dieTotal score one">{{ scorePartOne[1] }}</td>
         </tr>
         <tr>
             <td>Tweeen</td>
             <td>Tel alle tweeen op</td>
-            <td class="dieTotal score one">{{ scorePartOne.numTwo }}</td>
+            <td class="dieTotal score one">{{ scorePartOne[2] }}</td>
         </tr>
         <tr>
             <td>Drieen</td>
             <td>Tel alle drieen op</td>
-            <td class="dieTotal score one">{{ scorePartOne.numThree }}</td>
+            <td class="dieTotal score one">{{ scorePartOne[3] }}</td>
         </tr>
         <tr>
             <td>Vieren</td>
             <td>Tel alle vieren op</td>
-            <td class="dieTotal score one">{{ scorePartOne.numFour }}</td>
+            <td class="dieTotal score one">{{ scorePartOne[4] }}</td>
         </tr>
         <tr>
             <td>Vijfen</td>
             <td>Tel alle vijven op</td>
-            <td class="dieTotal score one">{{ scorePartOne.numFive }}</td>
+            <td class="dieTotal score one">{{ scorePartOne[5] }}</td>
         </tr>
         <tr>
             <td>Zessen</td>
             <td>Tel alle zessen op</td>
-            <td class="dieTotal score one">{{ scorePartOne.numSix }}</td>
+            <td class="dieTotal score one">{{ scorePartOne[6] }}</td>
         </tr>
         <tr>
             <td colspan="2">Totaal aantal punten</td>
@@ -145,5 +174,5 @@ function sumValues(obj){
             <td colspan="2">Totaal</td>
             <td id="total">0</td>
         </tr>
-    </table> -->
+    </table>
 </template>
