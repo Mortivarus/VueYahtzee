@@ -21,7 +21,7 @@ const log = () => console.log(thrownDice.value)
   
 
   
-  <ScoreTable :freq="numFreq"/>
+  <ScoreTable :freq="numFreq" :thrownDice="thrownDice"/>
 </template>
 
 

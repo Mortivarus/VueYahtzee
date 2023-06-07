@@ -1,48 +1,11 @@
 <script setup>
 import {ref, reactive, computed} from 'vue'
 
-let props = defineProps(['freq'])
+const props = defineProps(['freq', 'thrownDice'])
 
+const emit = defineEmits('sumScoreOnePreBonus')
 
-let scorePartOne = ref({
-    1: props.freq[0],
-    2: props.freq[1],
-    3: props.freq[2],
-    4: props.freq[3],
-    5: props.freq[4],
-    6: props.freq[5]
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function countConsequtives(array){
+const countConsequtives = (array) => {
     array.sort()
     array = [...new Set(array)]
     let conseqCount = 0
@@ -60,13 +23,17 @@ function countConsequtives(array){
     }
     size.push(conseqCount + 1)
 
-    console.log
 }
 
 function sumValues(obj){
     Object.values(obj).reduce((a, b)=> a+b, 0)
 }
 
+const reducer = (accumulator, item) => {return accumulator + item}
+
+const sumScoreOnePreBonus = emit(
+    props.thrownDice.reduce(reducer, 0)
+)
 
 
 
@@ -84,36 +51,36 @@ function sumValues(obj){
         <tr>
             <td>Enen</td>
             <td>Tel alle enen op</td>
-            <td class="dieTotal score one">{{ scorePartOne[1] }}</td>
+            <td class="dieTotal score one">{{ props.freq[0] * 1 }}</td>
         </tr>
         <tr>
             <td>Tweeen</td>
             <td>Tel alle tweeen op</td>
-            <td class="dieTotal score one">{{ scorePartOne[2] }}</td>
+            <td class="dieTotal score one">{{ props.freq[1] * 2 }}</td>
         </tr>
         <tr>
             <td>Drieen</td>
             <td>Tel alle drieen op</td>
-            <td class="dieTotal score one">{{ scorePartOne[3] }}</td>
+            <td class="dieTotal score one">{{ props.freq[2] * 3  }}</td>
         </tr>
         <tr>
             <td>Vieren</td>
             <td>Tel alle vieren op</td>
-            <td class="dieTotal score one">{{ scorePartOne[4] }}</td>
+            <td class="dieTotal score one">{{ props.freq[3] * 4 }}</td>
         </tr>
         <tr>
             <td>Vijfen</td>
             <td>Tel alle vijven op</td>
-            <td class="dieTotal score one">{{ scorePartOne[5] }}</td>
+            <td class="dieTotal score one">{{ props.freq[4] * 5 }}</td>
         </tr>
         <tr>
             <td>Zessen</td>
             <td>Tel alle zessen op</td>
-            <td class="dieTotal score one">{{ scorePartOne[6] }}</td>
+            <td class="dieTotal score one">{{ props.freq[5] * 6 }}</td>
         </tr>
         <tr>
             <td colspan="2">Totaal aantal punten</td>
-            <td id="totalPartOneBeforeBonus">0</td>
+            <td id="totalPartOneBeforeBonus">{{ sumScoreOnePreBonus }}</td>
         </tr>
         <tr>
             <td>Extra bonus <i>als puntentotaal 63 of meer is</i></td>
