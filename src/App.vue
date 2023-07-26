@@ -17,17 +17,12 @@ const log = () => console.log(thrownDice.value)
 
 <template>
   <h1>Scoreblok</h1>
-  <ThrownDices :thrown="thrownDice" :frequency="numFreq" @submitThrown="log()" />
+  <ThrownDices :thrown="thrownDice" :frequency="numFreq" />
   
 
   
   <ScoreTable :freq="numFreq" :thrownDice="thrownDice"/>
 </template>
-
-
-
-
-
 
 
 <style>

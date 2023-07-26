@@ -3,8 +3,6 @@ import {ref, reactive, computed} from 'vue'
 
 const props = defineProps(['freq', 'thrownDice'])
 
-const emit = defineEmits('sumScoreOnePreBonus')
-
 const countConsequtives = (array) => {
     array.sort()
     array = [...new Set(array)]
@@ -31,13 +29,11 @@ function sumValues(obj){
 
 const reducer = (accumulator, item) => {return accumulator + item}
 
-const sumScoreOnePreBonus = emit(
-    props.thrownDice.reduce(reducer, 0)
-)
+let scoreOne = computed(()=> props.thrownDice.reduce(reducer, 0))
 
-
-
-
+let bonus = computed(()=>{
+    return scoreOne >=  63 ? 35 : 0  
+})
 
 </script>
 
@@ -80,16 +76,16 @@ const sumScoreOnePreBonus = emit(
         </tr>
         <tr>
             <td colspan="2">Totaal aantal punten</td>
-            <td id="totalPartOneBeforeBonus">{{ sumScoreOnePreBonus }}</td>
+            <td id="totalPartOneBeforeBonus">{{ scoreOne }}</td>
         </tr>
         <tr>
             <td>Extra bonus <i>als puntentotaal 63 of meer is</i></td>
             <td>35 punten</td>
-            <td id="bonus">0</td>
+            <td id="bonus">{{ bonus }}</td>
         </tr>
         <tr>
             <td colspan="2">Totaal <i>van de bovenste helft</i></td>
-            <td class="totalPartOne">0</td>
+            <td class="totalPartOne">{{scoreOne + bonus}}</td>
         </tr>
         <tr>
             <th colspan="3">Deel 2</th>
