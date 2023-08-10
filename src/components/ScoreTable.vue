@@ -12,14 +12,16 @@ const countConsequtives = (array) => {
     for(let i = 0; i< array.length-1; i++){
         if(array[i]+1 === array[i+1]){
             conseqCount += 1
-            console.log(`${array[i]+1}, ${array[i+1]}`)
+            // console.log(`${array[i]+1}, ${array[i+1]}`)
         } else{
             size.push(conseqCount + 1)
             conseqCount = 0
-            console.log(`${array[i]+1}, ${array[i+1]}`)
+            // console.log(`${array[i]+1}, ${array[i+1]}`)
         }
     }
     size.push(conseqCount + 1)
+
+    return Math.max.apply(Math, size)
 
 }
 
@@ -34,6 +36,64 @@ let scoreOne = computed(()=> props.thrownDice.reduce(reducer, 0))
 let bonus = computed(()=>{
     return scoreOne >=  63 ? 35 : 0  
 })
+
+//Three times the same dice
+let threeOfAKind = computed(()=> {
+    if(props.freq.includes(3)){
+        return props.thrownDice.reduce(reducer, 0)
+    } else{
+        return 0
+    }
+}) 
+//Four times the same dice
+let carre = computed(()=> {
+    if(props.freq.includes(4)){
+        return props.thrownDice.reduce(reducer, 0)
+    } else{
+        return 0
+    }
+})
+
+// Three and two of the same number
+let fullHouse = computed(()=> {
+    if(props.freq.includes(3) && props.freq.includes(2)){
+        return 25
+    } else{
+        return 0
+    }
+
+}) 
+
+//Four dice in numerical sequence
+let smallStreet = computed(()=> {
+    let i = countConsequtives(props.thrownDice)
+    return i == 4 ? 30 : 0
+}) 
+
+//Five dice in numerical sequence
+let largeStreet = computed(()=> {
+    let i = countConsequtives(props.thrownDice)
+    return i == 5 ? 40 : 0
+}) 
+
+//Five times the same dice
+let yahtzee = computed(()=> {
+    if(props.freq.includes(5)){
+        return 50
+    } else{
+        return 0
+    }
+}) 
+
+//Any combination of dice
+let chance = computed(()=> {
+    return props.thrownDice.reduce(reducer, 0)
+}) 
+
+let scoreTwo = computed(()=> {
+    threeOfAKind + carre + fullHouse + smallStreet + largeStreet + yahtzee + chance
+})
+
 
 </script>
 
@@ -93,45 +153,45 @@ let bonus = computed(()=>{
         <tr>
             <td>Three of a kind</td>
             <td>Totaal v.d. 5 stenen</td>
-            <td id="threeOfAKind" class="score two">0</td>
+            <td id="threeOfAKind" class="score two">{{ threeOfAKind }}</td>
         </tr>
         <tr>
             <td>Carre</td>
             <td>Totaal v.d. 5 stenen</td>
-            <td id="carre" class="score two">0</td>
+            <td id="carre" class="score two">{{ carre }}</td>
         </tr>
         <tr>
             <td>Full house</td>
             <td>25 punten</td>
-            <td id="fullHouse" class="score two">0</td>
+            <td id="fullHouse" class="score two">{{ fullHouse }}</td>
         </tr>
         <tr>
             <td>Kleine straat</td>
             <td>30 punten</td>
-            <td id="smallStreet" class="score two">0</td>
+            <td id="smallStreet" class="score two">{{ smallStreet }}</td>
         </tr>
         <tr>
             <td>Grote straat</td>
             <td>40 punten</td>
-            <td id="largeStreet" class="score two">0</td>
+            <td id="largeStreet" class="score two">{{ largeStreet }}</td>
         </tr>
         <tr>
             <td>Yahtzee</td>
             <td>50 punten</td>
-            <td id="yahtzee" class="score two">0</td>
+            <td id="yahtzee" class="score two">{{ yahtzee }}</td>
         </tr>
         <tr>
             <td>Chance</td>
             <td>Totaal v.d. 5 stenen</td>
-            <td id="chance" class="score two">0</td>
+            <td id="chance" class="score two">{{ chance }}</td>
         </tr>
         <tr>
             <td colspan="2">Totaal <i>Deel 2</i></td>
-            <td id="totalPartTwo">0</td>
+            <td id="totalPartTwo">{{scoreTwo}}</td>
         </tr>
         <tr>
             <td colspan="2">Totaal <i>Deel 1</i></td>
-            <td class="totalPartOne">0</td>
+            <td class="totalPartOne">{{scoreOne + bonus}}</td>
         </tr>
         <tr>
             <td colspan="2">Totaal</td>
