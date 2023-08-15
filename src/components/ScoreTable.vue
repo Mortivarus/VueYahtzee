@@ -1,4 +1,5 @@
 <script setup>
+// TODO :: imports die je niet gebruikt opruimen
 import {ref, reactive, computed} from 'vue'
 
 const props = defineProps(['freq', 'thrownDice'])
@@ -25,12 +26,14 @@ const countConsequtives = (array) => {
 
 }
 
+// TODO :: wordt niet meer gebruikt, kan dus weg
 function sumValues(obj){
     Object.values(obj).reduce((a, b)=> a+b, 0)
 }
 
 const reducer = (accumulator, item) => {return accumulator + item}
 
+// TODO :: alle "let" kunnen hier "const" zijn
 let scoreOne = computed(()=> props.thrownDice.reduce(reducer, 0))
 
 let bonus = computed(()=>{
@@ -39,7 +42,8 @@ let bonus = computed(()=>{
 
 //Three times the same dice
 let threeOfAKind = computed(()=> {
-    if(props.freq.includes(3)){
+    if (props.freq.includes(3)) {
+        // TODO :: misschien een idee om een sumOfAllDice() iets te maken?
         return props.thrownDice.reduce(reducer, 0)
     } else{
         return 0
@@ -65,10 +69,9 @@ let fullHouse = computed(()=> {
 }) 
 
 //Four dice in numerical sequence
-let smallStreet = computed(()=> {
-    let i = countConsequtives(props.thrownDice)
-    return i == 4 ? 30 : 0
-}) 
+
+// TODO :: ik heb hem iets korter gemaakt voor je :)
+let smallStreet = computed(()=> countConsequtives(props.thrownDice) == 4 ? 30 : 0) 
 
 //Five dice in numerical sequence
 let largeStreet = computed(()=> {

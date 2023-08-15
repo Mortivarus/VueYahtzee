@@ -1,8 +1,11 @@
 <script setup>
+// TODO :: imports die je niet gebruikt opruimen
 import {ref} from 'vue'
 
 let props = defineProps(['thrown', 'frequency'])
 
+
+// TODO :: arrow notation gebruiken "() =>""
 function calcDice(){
     props.thrown.length = 0
 

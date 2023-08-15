@@ -4,6 +4,7 @@ import ThrownDices from './components/ThrownDices.vue'
 import {ref, reactive} from 'vue'
 
 
+// TODO :: const
 let thrownDice = ref([0,0,0,0,0])
 
 const numFreq = ref([0,0,0,0,0,0])
