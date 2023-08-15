@@ -91,7 +91,8 @@ let chance = computed(()=> {
 }) 
 
 let scoreTwo = computed(()=> {
-    threeOfAKind + carre + fullHouse + smallStreet + largeStreet + yahtzee + chance
+    return chance.value + largeStreet.value + threeOfAKind.value + carre.value + fullHouse.value + smallStreet.value + yahtzee.value
+    // return 0+ threeOfAKind() + carre() + fullHouse() + smallStreet() + largeStreet() + yahtzee() + chance()
 })
 
 
@@ -195,7 +196,7 @@ let scoreTwo = computed(()=> {
         </tr>
         <tr>
             <td colspan="2">Totaal</td>
-            <td id="total">0</td>
+            <td id="total">{{ scoreOne + scoreTwo + bonus }}</td>
         </tr>
     </table>
 </template>

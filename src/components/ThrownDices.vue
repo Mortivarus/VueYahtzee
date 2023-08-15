@@ -39,21 +39,5 @@ function throwDice(){
            
         </tr>
     </table>
-    
-    <h2>Number Frequencies</h2>
-    <table>
-        <tr>
-            <td v-for="n in 6">
-              <b>
-                {{ n }}
-              </b>  
-            </td>
-        </tr>
-        <tr>
-            <td v-for="(item, index) in props.frequency" :key="index">
-                {{ item }}
-            </td>
-        </tr>
-    </table>
     <button @click="throwDice()">Throw!</button>
 </template>
